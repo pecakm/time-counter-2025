@@ -38,13 +38,17 @@ export const Button = styled(ButtonMUI)`
 `;
 
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   background: ${Color.Gradient};
   padding: 1rem;
   border-radius: 10px;
   box-shadow: ${Color.BoxShadow};
   border: 1px solid ${Color.Gray};
+
+  ${Media.Mobile} {
+    font-size: 2rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -59,18 +63,18 @@ export const Content = styled.div`
   border: 1px solid ${Color.Gray};
   position: relative;
   scale: 0.6;
-  margin-top: -5rem;
+  margin: -5rem 0;
   overflow: hidden;
 
 
   ${Media.Mobile} {
     scale: 0.9;
-    margin-top: 1rem;
+    margin: 1rem 0;
   }
 
   ${Media.Tablet} {
     scale: 1;
-    margin-top: 2rem;
+    margin: 2rem 0;
   }
 `;
 
