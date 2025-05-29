@@ -8,7 +8,15 @@ import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import { ParamName } from '@/enums';
 import { Color } from '@/styles';
 
-import { Container, Timer, Content, Title, Circle, TimerWrapper, CircleWrapper } from './counter.styled';
+import {
+  Container,
+  Timer,
+  Content,
+  Title,
+  Circle,
+  CircleWrapper,
+  Completed,
+} from './counter.styled';
 
 export default function Counter() {
   const searchParams = useSearchParams();
@@ -28,7 +36,6 @@ export default function Counter() {
     <Container>
       <Title>{event}</Title>
       <Content>
-        <TimerWrapper>
           <CircleWrapper>
             <Circle />
           </CircleWrapper>
@@ -45,10 +52,9 @@ export default function Counter() {
                 color: 'transparent',
               }}
             >
-              Completed
+              <Completed>Completed</Completed>
             </FlipClockCountdown>
           </Timer>
-        </TimerWrapper>
       </Content>
     </Container>
   );

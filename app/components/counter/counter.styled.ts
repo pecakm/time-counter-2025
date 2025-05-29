@@ -7,14 +7,11 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  background-color: ${Color.Black};
+  min-height: 100vh;
 `;
 
 export const Title = styled.h1`
   font-size: 2rem;
-  color: ${Color.White};
   text-align: center;
   margin-bottom: 2rem;
 `;
@@ -29,13 +26,7 @@ export const Content = styled.div`
   background: ${Color.Gradient};
   box-shadow: ${Color.BoxShadow};
   border: 1px solid ${Color.Gray};
-`;
-
-export const TimerWrapper = styled.div`
   position: relative;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
 `;
 
 export const Timer = styled.div`
@@ -62,8 +53,8 @@ const rotate = keyframes`
 
 export const CircleWrapper = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4rem);
+  height: calc(100% - 4rem);
   border-radius: 50%;
   animation: ${rotate} 1s linear infinite;
 `;
@@ -78,3 +69,5 @@ export const Circle = styled.div`
   transform: translate(-50%, 0);
   box-shadow: 0 -20px 20px ${Color.LimeGreen};
 `;
+
+export const Completed = styled.div``;
