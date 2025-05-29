@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import { ParamName } from '@/enums';
 
 import { Container, Input, Button } from './form.styled';
 
 export default function Form() {
+  const t = useTranslations('homePage');
   const [event, setEvent] = useState('');
   const router = useRouter();
   const timestamp = new Date().getTime() + 48 * 3600 * 1000 + 5000;
@@ -26,7 +28,7 @@ export default function Form() {
         value={event}
         onChange={(e) => setEvent(e.target.value)}
       />
-      <Button onClick={handleStart}>Start</Button>
+      <Button onClick={handleStart}>{t('button')}</Button>
     </Container>
   );
 }

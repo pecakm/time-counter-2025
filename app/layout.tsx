@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 
 import '@/styles/globals.css';
 
@@ -18,18 +20,22 @@ export const metadata: Metadata = {
   description: 'Time Counter created by IT Pulse Mikołaj Pęcak',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={geist.className}>
         <StyledComponentsRegistry>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
-              {children}
+              <NextIntlClientProvider>
+                {children}
+              </NextIntlClientProvider>
             </ThemeProvider>
           </AppRouterCacheProvider>
         </StyledComponentsRegistry>
