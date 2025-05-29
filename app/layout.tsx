@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
 
-import './globals.css';
+import '@/styles/globals.css';
+
+import { StyledComponentsRegistry } from '@/lib/styled-components';
+import { theme } from '@/lib/mui';
 
 const geist = Geist({
   variable: '--font-geist',
@@ -21,7 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={geist.className}>
-        {children}
+        <StyledComponentsRegistry>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
