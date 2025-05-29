@@ -1,13 +1,26 @@
 'use client';
 
-import { Button } from '@mui/material';
+import { useState } from 'react';
 
-import { Container } from './form.styled';
+import { Container, Input, Button } from './form.styled';
 
 export default function Form() {
+  const [event, setEvent] = useState('');
+
+  const handleStart = () => {
+    console.log(event);
+  };
+
   return (
     <Container>
-      <Button variant="contained">Start</Button>
+      <Input
+        type="text"
+        label="Event name"
+        placeholder="Enter event name"
+        value={event}
+        onChange={(e) => setEvent(e.target.value)}
+      />
+      <Button onClick={handleStart}>Start</Button>
     </Container>
   );
 }
