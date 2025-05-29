@@ -1,9 +1,15 @@
-import { Form, PageContent } from './components';
+import { ParamName } from '@/enums';
 
-export default function Home() {
+import { Counter, Form, PageContent } from './components';
+import { Props } from './page.types';
+
+export default async function Home({ searchParams }: Props) {
+  const params = await searchParams;
+  const hasEvent = params[ParamName.Event] !== undefined;
+
   return (
     <PageContent>
-      <Form />
+      {hasEvent ? <Counter /> : <Form />}
     </PageContent>
   );
 }

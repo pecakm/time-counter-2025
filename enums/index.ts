@@ -1,0 +1,1 @@
+export * from './paramName.enum';

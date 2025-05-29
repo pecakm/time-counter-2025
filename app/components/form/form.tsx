@@ -1,14 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { ParamName } from '@/enums';
 
 import { Container, Input, Button } from './form.styled';
 
 export default function Form() {
   const [event, setEvent] = useState('');
+  const router = useRouter();
 
   const handleStart = () => {
-    console.log(event);
+    router.push(`?${ParamName.Event}=${encodeURIComponent(event)}`);
   };
 
   return (
