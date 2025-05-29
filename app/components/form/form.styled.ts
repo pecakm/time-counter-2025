@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { TextField, Button as ButtonMUI } from '@mui/material';
+import { DateTimePicker as DateTimePickerMUI } from '@mui/x-date-pickers/DateTimePicker';
 
 import { Color, Media } from '@/styles';
 
@@ -51,6 +52,40 @@ export const Input = styled(TextField)`
     color: ${Color.White};
     
     &.Mui-focused {
+      color: ${Color.LimeGreen};
+    }
+  }
+`;
+
+export const DateTimePicker = styled(DateTimePickerMUI)`
+  & .MuiInputBase-root {
+    color: ${Color.White};
+    
+    & fieldset {
+      border-color: ${Color.Gray};
+    }
+    
+    &:hover fieldset {
+      border-color: ${Color.LimeGreen};
+    }
+    
+    &.Mui-focused fieldset {
+      border-color: ${Color.LimeGreen};
+    }
+  }
+
+  & .MuiInputLabel-root {
+    color: ${Color.White};
+    
+    &.Mui-focused {
+      color: ${Color.LimeGreen};
+    }
+  }
+
+  & .MuiIconButton-root {
+    color: ${Color.White};
+    
+    &:hover {
       color: ${Color.LimeGreen};
     }
   }

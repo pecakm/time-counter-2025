@@ -3,20 +3,33 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 
 import { ParamName } from '@/enums';
 
-import { Container, Input, Button, Title, Description } from './form.styled';
+import {
+  Container,
+  Input,
+  Button,
+  Title,
+  Description,
+  DateTimePicker,
+} from './form.styled';
 
 export default function Form() {
   const t = useTranslations('homePage.form');
   const [event, setEvent] = useState('');
+  const [date, setDate] = useState<dayjs.Dayjs | null>(null);
   const router = useRouter();
-  const timestamp = new Date().getTime() + 48 * 3600 * 1000 + 5000;
-  // const timestamp = new Date().getTime() - 5000;
 
   const handleStart = () => {
-    router.push(`?${ParamName.Event}=${encodeURIComponent(event)}&${ParamName.Timestamp}=${timestamp}`);
+    if (event && date) {
+      const eventParam = `${ParamName.Event}=${encodeURIComponent(event)}`;
+      const timestampParam = `${ParamName.Timestamp}=${date.unix() * 1000}`;
+      router.push(`?${eventParam}&${timestampParam}`);
+    }
   };
 
   return (
@@ -30,6 +43,13 @@ export default function Form() {
         value={event}
         onChange={(e) => setEvent(e.target.value)}
       />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateTimePicker
+          label="Event date"
+          value={date}
+          onChange={(value) => setDate(dayjs(value))}
+        />
+      </LocalizationProvider>
       <Button onClick={handleStart}>{t('button')}</Button>
     </Container>
   );
