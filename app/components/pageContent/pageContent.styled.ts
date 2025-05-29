@@ -5,4 +5,5 @@ export const Container = styled.main`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 1rem;
 `;

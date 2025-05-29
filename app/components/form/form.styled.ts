@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TextField, Button as ButtonMUI } from '@mui/material';
 
-import { Color } from '@/styles';
+import { Color, Media } from '@/styles';
 
 export const Container = styled.form`
   display: flex;
@@ -9,11 +9,25 @@ export const Container = styled.form`
   gap: 1.5rem;
   max-width: 400px;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
   background: ${Color.Gradient};
   border-radius: 10px;
   box-shadow: ${Color.BoxShadow};
   border: 1px solid ${Color.Gray};
+`;
+
+export const Title = styled.h1`
+  font-size: 1.5rem;
+  text-align: center;
+
+  ${Media.Mobile} {
+    font-size: 2rem;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 1rem;
+  text-align: center;
 `;
 
 export const Input = styled(TextField)`

@@ -6,10 +6,10 @@ import { useTranslations } from 'next-intl';
 
 import { ParamName } from '@/enums';
 
-import { Container, Input, Button } from './form.styled';
+import { Container, Input, Button, Title, Description } from './form.styled';
 
 export default function Form() {
-  const t = useTranslations('homePage');
+  const t = useTranslations('homePage.form');
   const [event, setEvent] = useState('');
   const router = useRouter();
   const timestamp = new Date().getTime() + 48 * 3600 * 1000 + 5000;
@@ -21,6 +21,8 @@ export default function Form() {
 
   return (
     <Container>
+      <Title>{t('title')}</Title>
+      <Description>{t('description')}</Description>
       <Input
         type="text"
         label="Event name"

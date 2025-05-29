@@ -1,5 +1,12 @@
 {
   "homePage": {
-    "button": "Start countdown"
+    "form": {
+      "title": "⏱️ Countdown Timer ⏱️",
+      "description": "Set the event name and start the final countdown!",
+      "button": "Start countdown"
+    },
+    "counter": {
+      "new": "Set new countdown"
+    }
   }
 }
