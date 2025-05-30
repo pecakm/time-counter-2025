@@ -7,11 +7,13 @@ export default async function Home({ searchParams }: Props) {
   const params = await searchParams;
   const timestamp = params[ParamName.Timestamp];
   const event = params[ParamName.Event];
+  const decodedTimestamp = timestamp ? parseInt(timestamp, 36) : undefined;
+  const decodedEvent = event ? atob(event) : undefined;
 
   return (
     <PageContent>
-      {timestamp !== undefined ? (
-        <Counter timestamp={Number(timestamp)} event={event} />
+      {decodedTimestamp !== undefined ? (
+        <Counter timestamp={decodedTimestamp} event={decodedEvent} />
       ) : (
         <Form />
       )}

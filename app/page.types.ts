@@ -1,6 +1,8 @@
+import { ParamName } from '@/enums';
+
 export type Props = {
   searchParams: Promise<{
-    timestamp?: string;
-    event?: string;
+    [ParamName.Timestamp]?: string;
+    [ParamName.Event]?: string;
   }>;
 };

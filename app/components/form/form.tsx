@@ -47,10 +47,11 @@ export default function Form() {
   const onSubmit = ({ date, name }: FormFields) => {
     if (date === null) return;
 
-    const timestampParam = `${ParamName.Timestamp}=${date?.getTime()}`;
+    const timestampParam = `${ParamName.Timestamp}=${date?.getTime().toString(36)}`;
 
     if (name) {
-      const eventParam = `${ParamName.Event}=${encodeURIComponent(name)}`;
+      const encodedEvent = btoa(name).replace(/=+$/, '');
+      const eventParam = `${ParamName.Event}=${encodedEvent}`;
       router.push(`?${timestampParam}&${eventParam}`);
     } else {
       router.push(`?${timestampParam}`);

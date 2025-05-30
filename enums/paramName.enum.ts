@@ -1,4 +1,4 @@
 export enum ParamName {
-  Event = 'event',
-  Timestamp = 'timestamp',
+  Event = 'e',
+  Timestamp = 't',
 }
