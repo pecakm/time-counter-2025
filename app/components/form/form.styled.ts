@@ -2,28 +2,37 @@ import styled from 'styled-components';
 import { TextField, Button as ButtonMUI } from '@mui/material';
 import { DateTimePicker as DateTimePickerMUI } from '@mui/x-date-pickers/DateTimePicker';
 
-import { Color } from '@/styles';
+import { Color, Media } from '@/styles';
 
 export const Container = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   background: ${Color.BgPaper};
   border-radius: 16px;
   box-shadow: ${Color.ContainerBoxShadow};
   backdrop-filter: blur(8px);
   border: 1px solid ${Color.ContainerBorderColor};
+
+  ${Media.Tablet} {
+    padding: 2rem;
+  }
 `;
 
 export const Title = styled.h1`
   color: ${Color.TextPrimary};
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   text-align: center;
+
+  ${Media.Mobile} {
+    font-size: 2rem;
+  }
 `;
 
 export const Description = styled.p`
