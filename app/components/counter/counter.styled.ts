@@ -10,12 +10,12 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  max-width: 100%;
 `;
 
 export const Buttons = styled.div`
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
 `;
 
 export const Button = styled(ButtonMUI)`
@@ -50,7 +50,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 3rem;
+  padding: 1rem;
   background: ${Color.BgPaper};
   border-radius: 24px;
   box-shadow: ${Color.ContainerBoxShadow};
@@ -59,6 +59,10 @@ export const ContentWrapper = styled.div`
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+
+  ${Media.Tablet} {
+    padding: 3rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -69,7 +73,7 @@ export const Title = styled.h1`
   margin: 0;
   text-shadow: ${Color.TextShadow};
 
-  ${Media.Mobile} {
+  ${Media.Tablet} {
     font-size: 2.5rem;
   }
 `;
@@ -78,8 +82,6 @@ export const ClockWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   padding: 2rem;
@@ -89,17 +91,16 @@ export const ClockWrapper = styled.div`
   box-shadow: ${Color.ContainerBoxShadow};
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 517px;
+  overflow: hidden;
 `;
 
 export const Clock = styled(FlipClockCountdown)`
-  transform: scale(0.7);
+  transform: scale(0.60);
   transform-origin: center;
 
-  ${Media.Tablet} {
-    transform: scale(0.85);
-  }
-
-  ${Media.Desktop} {
+  ${Media.Mobile} {
     transform: scale(1);
   }
 `;
