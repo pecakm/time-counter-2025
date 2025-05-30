@@ -23,7 +23,7 @@ export default function Counter({ timestamp, event }: Props) {
   const t = useTranslations('homePage.counter');
   const router = useRouter();
   const [isCopied, setIsCopied] = useState(false);
-  const [seconds, setSeconds] = useState<number | null>(null);
+  const [secondsLeft, setSecondsLeft] = useState<number | null>(null);
 
   const handleNew = () => {
     router.push('/');
@@ -47,13 +47,13 @@ export default function Counter({ timestamp, event }: Props) {
       <ContentWrapper>
         {event && <Title>{event}</Title>}
         <Countdown>
-          <PointerWrapper $seconds={seconds || 0}>
-            {seconds !== null && <Pointer />}
+          <PointerWrapper $seconds={secondsLeft || 0}>
+            {!!secondsLeft && <Pointer />}
           </PointerWrapper>
-          <ClockWrapper>
+          <ClockWrapper $eventStarted={!secondsLeft}>
             <Clock
               to={timestamp}
-              onTick={({ timeDelta }) => setSeconds(timeDelta.seconds)}
+              onTick={({ timeDelta }) => setSecondsLeft(timeDelta.total)}
             >
               <Completed>
                 {t('eventStarted')}

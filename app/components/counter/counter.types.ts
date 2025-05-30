@@ -6,3 +6,7 @@ export type Props = {
 export type PointerWrapperProps = {
   $seconds: number;
 };
+
+export type ClockWrapperProps = {
+  $eventStarted: boolean;
+};

@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button as ButtonMUI } from '@mui/material';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 
 import { Color, Media } from '@/styles';
 
-import { PointerWrapperProps } from './counter.types';
+import { ClockWrapperProps, PointerWrapperProps } from './counter.types';
 
 export const Container = styled.section`
   display: flex;
@@ -94,7 +94,8 @@ export const PointerWrapper = styled.div<PointerWrapperProps>`
   display: flex;
   width: 100%;
   aspect-ratio: 1 / 1;
-  transition: transform 0.5s ease;
+  opacity: ${({ $seconds }) => $seconds > 0 ? 1 : 0};
+  transition: transform 0.5s ease, opacity 1s ease 0.5s;
   transform: rotate(${({ $seconds }) => $seconds * -6}deg);
 `;
 
@@ -107,7 +108,7 @@ export const Pointer = styled.div`
   transform: translateY(-50%);
 `;
 
-export const ClockWrapper = styled.div`
+export const ClockWrapper = styled.div<ClockWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,10 +119,15 @@ export const ClockWrapper = styled.div`
   border: 3px solid ${Color.ContainerBorderColor};
   box-shadow: ${Color.ContainerBoxShadow};
   backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
   width: 100%;
   overflow: hidden;
   position: absolute;
+  transition: all 2s ease;
+
+  ${({ $eventStarted }) => $eventStarted && css`
+    border: 3px solid ${Color.LimeGreenDark};
+    box-shadow: 0 0 20px 10px ${Color.LimeGreenDark};
+  `}
 `;
 
 export const Clock = styled(FlipClockCountdown)`
