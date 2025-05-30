@@ -1,0 +1,23 @@
+{
+  "homePage": {
+    "form": {
+      "title": "⏱️ Countdown Timer ⏱️",
+      "description": "Set the date and time for your countdown",
+      "button": "Start countdown!",
+      "date": {
+        "required": "Date is required",
+        "placeholder": "Select date and time"
+      },
+      "name": {
+        "max": "Name must be less than 128 characters",
+        "placeholder": "Enter name of the event"
+      }
+    },
+    "counter": {
+      "new": "Set new countdown",
+      "copyLink": "Copy link",
+      "copied": "Copied!",
+      "eventStarted": "Event already started!"
+    }
+  }
+}
