@@ -11,6 +11,8 @@
     },
     "counter": {
       "new": "Set new countdown",
+      "copyLink": "Copy link",
+      "copied": "Copied!",
       "eventStarted": "Event already started!"
     }
   }

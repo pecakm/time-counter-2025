@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
@@ -16,13 +17,22 @@ import { Props } from './counter.types';
 export default function Counter({ timestamp, event }: Props) {
   const t = useTranslations('homePage.counter');
   const router = useRouter();
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleNew = () => {
     router.push('/');
   };
 
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+  };
+
   return (
     <Container>
+      <Button onClick={handleCopyLink}>
+        {isCopied ? t('copied') : t('copyLink')}
+      </Button>
       <Button onClick={handleNew}>
         {t('new')}
       </Button>
