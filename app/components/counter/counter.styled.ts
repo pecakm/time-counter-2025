@@ -22,25 +22,24 @@ export const Buttons = styled.div`
 
 export const Button = styled(ButtonMUI)`
   && {
-    background-color: ${Color.ButtonBg};
+    background-color: transparent;
     color: ${Color.LimeGreen};
     font-weight: 500;
     padding: 0.75rem 2rem;
     transition: all 0.2s ease;
     text-transform: none;
     font-size: 1rem;
-    border: 1px solid ${Color.ButtonBorderColor};
+    border: none;
     min-width: 160px;
     gap: 0.5rem;
   }
 
   &:hover {
     && {
-      background-color: ${Color.ButtonHoverBg};
-      border-color: ${Color.ButtonHoverBorderColor};
+      background-color: rgba(50, 205, 50, 0.1);
+      border: none;
     }
     transform: translateY(-2px);
-    box-shadow: ${Color.ButtonBoxShadow};
   }
 
   &:active {
