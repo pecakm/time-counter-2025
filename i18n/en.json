@@ -1,7 +1,13 @@
 {
   "homePage": {
     "form": {
-      "button": "Start countdown"
+      "button": "Start countdown",
+      "date": {
+        "required": "Date is required"
+      },
+      "name": {
+        "max": "Name must be less than 128 characters"
+      }
     },
     "counter": {
       "new": "Set new countdown"
