@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
-import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import { useTranslations } from 'next-intl';
 
 import {
@@ -13,6 +11,8 @@ import {
   Completed,
   Buttons,
   ContentWrapper,
+  Clock,
+  ClockWrapper,
 } from './counter.styled';
 import { Props } from './counter.types';
 
@@ -42,11 +42,13 @@ export default function Counter({ timestamp, event }: Props) {
       </Buttons>
       <ContentWrapper>
         {event && <Title>{event}</Title>}
-        <FlipClockCountdown to={timestamp}>
-          <Completed>
-            {t('eventStarted')}
-          </Completed>
-        </FlipClockCountdown>
+        <ClockWrapper>
+          <Clock to={timestamp}>
+            <Completed>
+              {t('eventStarted')}
+            </Completed>
+          </Clock>
+        </ClockWrapper>
       </ContentWrapper>
     </Container>
   );
