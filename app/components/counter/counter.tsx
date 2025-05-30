@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { Check, Copy, Plus } from 'lucide-react';
 
 import {
   Container,
@@ -39,9 +40,11 @@ export default function Counter({ timestamp, event }: Props) {
       <Buttons>
         <Button onClick={handleCopyLink}>
           {isCopied ? t('copied') : t('copyLink')}
+          {isCopied ? <Check /> : <Copy size={16} />}
         </Button>
         <Button onClick={handleNew}>
           {t('new')}
+          <Plus />
         </Button>
       </Buttons>
       <ContentWrapper>

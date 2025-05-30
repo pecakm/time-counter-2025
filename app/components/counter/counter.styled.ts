@@ -31,6 +31,7 @@ export const Button = styled(ButtonMUI)`
     font-size: 1rem;
     border: 1px solid ${Color.ButtonBorderColor};
     min-width: 160px;
+    gap: 0.5rem;
   }
 
   &:hover {
