@@ -1,9 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Button as ButtonMUI } from '@mui/material';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 
 import { Color, Media } from '@/styles';
+
+import { PointerWrapperProps } from './counter.types';
 
 export const Container = styled.section`
   display: flex;
@@ -88,28 +90,21 @@ export const Countdown = styled.div`
   justify-content: center;
 `;
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-export const PointerWrapper = styled.div`
+export const PointerWrapper = styled.div<PointerWrapperProps>`
   display: flex;
   width: 100%;
   aspect-ratio: 1 / 1;
-  animation: ${rotate} 60s linear infinite;
+  transition: transform 0.5s ease;
+  transform: rotate(${({ $seconds }) => $seconds * -6}deg);
 `;
 
 export const Pointer = styled.div`
   width: 20px;
   height: 50px;
   border-radius: 50%;
-  box-shadow: 0 -20px 20px 10px ${Color.LimeGreen};
+  box-shadow: 0 -10px 20px 10px ${Color.LimeGreen};
   margin: 0 auto;
+  transform: translateY(-50%);
 `;
 
 export const ClockWrapper = styled.div`
