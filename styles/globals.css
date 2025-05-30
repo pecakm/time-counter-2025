@@ -5,3 +5,8 @@
   font: inherit;
   white-space: pre-line;
 }
+
+body {
+  background-color: #121212;
+  color: #fff;
+}
