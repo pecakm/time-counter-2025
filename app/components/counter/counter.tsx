@@ -8,7 +8,6 @@ import { useTranslations } from 'next-intl';
 import { PlusIcon } from 'lucide-react';
 
 import { ParamName } from '@/enums';
-import { Color } from '@/styles';
 
 import {
   Container,
@@ -18,7 +17,6 @@ import {
   Title,
   Circle,
   CircleWrapper,
-  Completed,
 } from './counter.styled';
 
 export default function Counter() {
@@ -55,20 +53,7 @@ export default function Counter() {
             <Circle />
           </CircleWrapper>
           <Timer>
-            <FlipClockCountdown
-              to={timestamp}
-              labelStyle={{
-                color: Color.White,
-              }}
-              separatorStyle={{
-                color: Color.White,
-              }}
-              dividerStyle={{
-                color: 'transparent',
-              }}
-            >
-              <Completed>Completed</Completed>
-            </FlipClockCountdown>
+            <FlipClockCountdown to={timestamp} />
           </Timer>
       </Content>
     </Container>
