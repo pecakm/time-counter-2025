@@ -2,6 +2,8 @@
 
 Set the final countdown to your own event!
 
+Live demo [here](https://time-counter-itpulse.vercel.app).
+
 The app was made with Next.js 15 in 2025.
 
 Copyright 2025 IT Pulse Mikołaj Pęcak. All rights reserved.
