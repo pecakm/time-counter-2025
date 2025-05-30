@@ -39,6 +39,7 @@ export const DateTimePicker = styled(DateTimePickerMUI)`
     background-color: ${Color.BgDefault};
     transition: all 0.2s ease;
     border-radius: 8px;
+    font-size: 1rem;
 
     &:hover {
       background-color: ${Color.InputHoverBg};
@@ -47,6 +48,15 @@ export const DateTimePicker = styled(DateTimePickerMUI)`
     &.Mui-focused {
       background-color: ${Color.InputFocusBg};
     }
+
+    .MuiInputBase-input {
+      padding: 1rem;
+    }
+  }
+
+  .MuiInputLabel-root {
+    color: ${Color.TextSecondary};
+    font-size: 1rem;
   }
 `;
 
@@ -55,6 +65,7 @@ export const Input = styled(TextField)`
     background-color: ${Color.BgDefault};
     border-radius: 8px;
     transition: all 0.2s ease;
+    font-size: 1rem;
 
     &:hover {
       background-color: ${Color.InputHoverBg};
@@ -63,10 +74,20 @@ export const Input = styled(TextField)`
     &.Mui-focused {
       background-color: ${Color.InputFocusBg};
     }
+
+    .MuiInputBase-input {
+      padding: 1rem;
+    }
   }
 
   .MuiInputLabel-root {
     color: ${Color.TextSecondary};
+    font-size: 1rem;
+  }
+
+  .MuiInputBase-input::placeholder {
+    color: ${Color.TextSecondary};
+    opacity: 0.7;
   }
 `;
 

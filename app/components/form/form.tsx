@@ -64,10 +64,15 @@ export default function Form() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           onChange={handleDateChange}
+          format="DD/MM/YYYY HH:mm"
+          ampm={false}
+          timeSteps={{ minutes: 1 }}
+          label={t('date.placeholder')}
           slotProps={{
             textField: {
               error: !!errors[FieldName.Date] || dateNullError,
               helperText: dateHelperText,
+              fullWidth: true,
             },
           }}
         />
@@ -76,6 +81,8 @@ export default function Form() {
         {...register(FieldName.Name)}
         error={!!errors[FieldName.Name]}
         helperText={errors[FieldName.Name]?.message && t(errors[FieldName.Name].message)}
+        label={t('name.placeholder')}
+        fullWidth
       />
       <Button type="submit">{t('button')}</Button>
     </Container>
