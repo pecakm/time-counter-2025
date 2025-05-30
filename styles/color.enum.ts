@@ -15,4 +15,5 @@ export enum Color {
   ButtonHoverBorderColor = 'rgba(50, 205, 50, 0.5)',
   ContainerBoxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)',
   ButtonBoxShadow = '0 4px 12px rgba(50, 205, 50, 0.15)',
+  TextShadow = '0 2px 10px rgba(255, 255, 255, 0.1)',
 }

@@ -11,6 +11,8 @@ import {
   Button,
   Title,
   Completed,
+  Buttons,
+  ContentWrapper,
 } from './counter.styled';
 import { Props } from './counter.types';
 
@@ -30,18 +32,22 @@ export default function Counter({ timestamp, event }: Props) {
 
   return (
     <Container>
-      <Button onClick={handleCopyLink}>
-        {isCopied ? t('copied') : t('copyLink')}
-      </Button>
-      <Button onClick={handleNew}>
-        {t('new')}
-      </Button>
-      {event && <Title>{event}</Title>}
-      <FlipClockCountdown to={timestamp}>
-        <Completed>
-          {t('eventStarted')}
-        </Completed>
-      </FlipClockCountdown>
+      <Buttons>
+        <Button onClick={handleCopyLink}>
+          {isCopied ? t('copied') : t('copyLink')}
+        </Button>
+        <Button onClick={handleNew}>
+          {t('new')}
+        </Button>
+      </Buttons>
+      <ContentWrapper>
+        {event && <Title>{event}</Title>}
+        <FlipClockCountdown to={timestamp}>
+          <Completed>
+            {t('eventStarted')}
+          </Completed>
+        </FlipClockCountdown>
+      </ContentWrapper>
     </Container>
   );
 }

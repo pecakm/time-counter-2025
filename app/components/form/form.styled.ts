@@ -18,6 +18,22 @@ export const Container = styled.form`
   border: 1px solid ${Color.ContainerBorderColor};
 `;
 
+export const Title = styled.h1`
+  color: ${Color.TextPrimary};
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+`;
+
+export const Description = styled.p`
+  color: ${Color.TextSecondary};
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+`;
+
 export const DateTimePicker = styled(DateTimePickerMUI)`
   .MuiPickersInputBase-root {
     background-color: ${Color.BgDefault};

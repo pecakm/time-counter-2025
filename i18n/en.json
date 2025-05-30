@@ -1,7 +1,9 @@
 {
   "homePage": {
     "form": {
-      "button": "Start countdown",
+      "title": "⏱️ Countdown Timer ⏱️",
+      "description": "Set the date and time for your countdown",
+      "button": "Start countdown!",
       "date": {
         "required": "Date is required"
       },
