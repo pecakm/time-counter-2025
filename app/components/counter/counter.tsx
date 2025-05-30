@@ -9,6 +9,7 @@ import {
   Container,
   Button,
   Title,
+  Completed,
 } from './counter.styled';
 import { Props } from './counter.types';
 
@@ -26,7 +27,11 @@ export default function Counter({ timestamp, event }: Props) {
         {t('new')}
       </Button>
       {event && <Title>{event}</Title>}
-      <FlipClockCountdown to={timestamp} />
+      <FlipClockCountdown to={timestamp}>
+        <Completed>
+          {t('eventStarted')}
+        </Completed>
+      </FlipClockCountdown>
     </Container>
   );
 }

@@ -10,7 +10,8 @@
       }
     },
     "counter": {
-      "new": "Set new countdown"
+      "new": "Set new countdown",
+      "eventStarted": "Event already started!"
     }
   }
 }

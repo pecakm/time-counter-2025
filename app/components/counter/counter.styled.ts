@@ -6,3 +6,5 @@ export const Container = styled.section``;
 export const Button = styled(ButtonMUI)``;
 
 export const Title = styled.h1``;
+
+export const Completed = styled.p``;
