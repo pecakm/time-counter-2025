@@ -1,3 +1,6 @@
 export type Props = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    timestamp?: string;
+    event?: string;
+  }>;
 };

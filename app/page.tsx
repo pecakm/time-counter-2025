@@ -5,11 +5,16 @@ import { Props } from './page.types';
 
 export default async function Home({ searchParams }: Props) {
   const params = await searchParams;
-  const isDateSet = params[ParamName.Timestamp] !== undefined;
+  const timestamp = params[ParamName.Timestamp];
+  const event = params[ParamName.Event];
 
   return (
     <PageContent>
-      {isDateSet ? <Counter /> : <Form />}
+      {timestamp !== undefined ? (
+        <Counter timestamp={Number(timestamp)} event={event} />
+      ) : (
+        <Form />
+      )}
     </PageContent>
   );
 }
