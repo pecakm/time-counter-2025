@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Button as ButtonMUI } from '@mui/material';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
@@ -50,7 +50,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 3rem 1rem;
   background: ${Color.BgPaper};
   border-radius: 24px;
   box-shadow: ${Color.ContainerBoxShadow};
@@ -59,6 +59,7 @@ export const ContentWrapper = styled.div`
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 
   ${Media.Tablet} {
     padding: 3rem;
@@ -78,13 +79,45 @@ export const Title = styled.h1`
   }
 `;
 
+export const Countdown = styled.div`
+  position: relative;
+  max-width: 100%;
+  width: 517px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const PointerWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  animation: ${rotate} 60s linear infinite;
+`;
+
+export const Pointer = styled.div`
+  width: 20px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 -20px 20px 10px ${Color.LimeGreen};
+  margin: 0 auto;
+`;
+
 export const ClockWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  padding: 2rem;
   overflow: hidden;
   background: ${Color.BgPaper};
   border: 3px solid ${Color.ContainerBorderColor};
@@ -92,8 +125,8 @@ export const ClockWrapper = styled.div`
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 517px;
   overflow: hidden;
+  position: absolute;
 `;
 
 export const Clock = styled(FlipClockCountdown)`

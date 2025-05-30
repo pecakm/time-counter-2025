@@ -13,6 +13,9 @@ import {
   ContentWrapper,
   Clock,
   ClockWrapper,
+  Countdown,
+  PointerWrapper,
+  Pointer,
 } from './counter.styled';
 import { Props } from './counter.types';
 
@@ -42,13 +45,18 @@ export default function Counter({ timestamp, event }: Props) {
       </Buttons>
       <ContentWrapper>
         {event && <Title>{event}</Title>}
-        <ClockWrapper>
-          <Clock to={timestamp}>
-            <Completed>
-              {t('eventStarted')}
-            </Completed>
-          </Clock>
-        </ClockWrapper>
+        <Countdown>
+          <PointerWrapper>
+            <Pointer />
+          </PointerWrapper>
+          <ClockWrapper>
+            <Clock to={timestamp}>
+              <Completed>
+                {t('eventStarted')}
+              </Completed>
+            </Clock>
+          </ClockWrapper>
+        </Countdown>
       </ContentWrapper>
     </Container>
   );
