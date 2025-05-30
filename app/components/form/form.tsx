@@ -9,6 +9,7 @@ import { PickerValue } from '@mui/x-date-pickers/internals/models';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { encodeParams } from '@/utils';
 import { ParamName } from '@/enums';
 
 import {
@@ -47,15 +48,7 @@ export default function Form() {
   const onSubmit = ({ date, name }: FormFields) => {
     if (date === null) return;
 
-    const timestampParam = `${ParamName.Timestamp}=${date?.getTime().toString(36)}`;
-
-    if (name) {
-      const encodedEvent = btoa(name).replace(/=+$/, '');
-      const eventParam = `${ParamName.Event}=${encodedEvent}`;
-      router.push(`?${timestampParam}&${eventParam}`);
-    } else {
-      router.push(`?${timestampParam}`);
-    }
+    router.push(`?${ParamName.Params}=${encodeParams(date.getTime(), name)}`);
   };
 
   return (
