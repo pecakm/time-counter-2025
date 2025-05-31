@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Check, Copy, Plus } from 'lucide-react';
@@ -25,6 +25,13 @@ export default function Counter({ timestamp, event }: Props) {
   const router = useRouter();
   const [isCopied, setIsCopied] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState<number | null>(null);
+  const daysLeftInSeconds = useMemo(() => {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const diff = timestamp - Date.now();
+    const days = Math.floor(diff / oneDay);
+
+    return days * oneDay / 1000;
+  }, [timestamp]);
 
   const handleNew = () => {
     router.push('/');
@@ -47,16 +54,25 @@ export default function Counter({ timestamp, event }: Props) {
           <Plus />
         </Button>
       </Buttons>
+      {event && (
+        <ContentWrapper>
+          <Title>{event}</Title>
+        </ContentWrapper>
+      )}
       <ContentWrapper>
-        {event && <Title>{event}</Title>}
         <Countdown>
-          <PointerWrapper $seconds={secondsLeft || 0}>
+          <PointerWrapper
+            $rotationSeconds={secondsLeft ? secondsLeft - daysLeftInSeconds : 0}
+            $secondsLeft={secondsLeft || 0}
+          >
             {!!secondsLeft && <Pointer />}
           </PointerWrapper>
           <ClockWrapper $eventStarted={!secondsLeft}>
             <Clock
               to={timestamp}
               onTick={({ timeDelta }) => setSecondsLeft(timeDelta.total)}
+              // 86400000 equals 1000 days in seconds
+              $small={daysLeftInSeconds >= 86400000}
             >
               <Completed>
                 {t('eventStarted')}
