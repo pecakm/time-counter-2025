@@ -4,9 +4,14 @@ export type Props = {
 };
 
 export type PointerWrapperProps = {
-  $seconds: number;
+  $secondsLeft: number;
+  $rotationSeconds: number;
 };
 
 export type ClockWrapperProps = {
   $eventStarted: boolean;
+};
+
+export type ClockProps = {
+  $small: boolean;
 };
