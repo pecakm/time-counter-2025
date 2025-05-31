@@ -5,7 +5,7 @@ import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 
 import { Color, Media } from '@/styles';
 
-import { ClockWrapperProps, PointerWrapperProps } from './counter.types';
+import { ClockProps, ClockWrapperProps, PointerWrapperProps } from './counter.types';
 
 export const Container = styled.section`
   display: flex;
@@ -94,9 +94,9 @@ export const PointerWrapper = styled.div<PointerWrapperProps>`
   display: flex;
   width: 100%;
   aspect-ratio: 1 / 1;
-  opacity: ${({ $seconds }) => $seconds > 0 ? 1 : 0};
+  opacity: ${({ $secondsLeft }) => $secondsLeft ? 1 : 0};
   transition: transform 0.5s ease, opacity 1s ease 0.5s;
-  transform: rotate(${({ $seconds }) => $seconds * -6}deg);
+  transform: rotate(${({ $rotationSeconds }) => $rotationSeconds * -6}deg);
 `;
 
 export const Pointer = styled.div`
@@ -130,12 +130,12 @@ export const ClockWrapper = styled.div<ClockWrapperProps>`
   `}
 `;
 
-export const Clock = styled(FlipClockCountdown)`
-  transform: scale(0.60);
+export const Clock = styled(FlipClockCountdown)<ClockProps>`
+  transform: scale(${({ $small }) => $small ? 0.5 : 0.6});
   transform-origin: center;
 
   ${Media.Mobile} {
-    transform: scale(1);
+    transform: scale(${({ $small }) => $small ? 0.85 : 1});
   }
 `;
 
